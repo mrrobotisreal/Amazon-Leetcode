@@ -1,12 +1,12 @@
-const body = document.getElementsByTagName('body');
+const body = document.querySelector('body');
 const app = document.getElementById('app');
 const nav = document.createElement('nav');
 nav.style.backgroundImage = 'linear-gradient(to left, blue, grey, skyblue)';
-body[0].prepend(nav);
+body.prepend(nav);
 
 const navDiv = document.createElement('div');
 navDiv.setAttribute('class', 'nav-center');
-document.getElementsByTagName('nav')[0].appendChild(navDiv);
+document.querySelector('nav').appendChild(navDiv);
 
 const navTitle = document.createElement('h4');
 navTitle.textContent = 'Color Flipper';
@@ -30,7 +30,7 @@ hexA.textContent = 'Hex';
 listItem2.appendChild(hexA);
 
 const main = document.createElement('main');
-body[0].append(main);
+body.append(main);
 const containerDiv = document.createElement('div');
 containerDiv.setAttribute('class', 'container');
 main.appendChild(containerDiv);
@@ -58,8 +58,8 @@ btn.addEventListener('click', function() {
   let hexColor:string = '#';
   for (let i:number = 0; i < 6; i++) {
     let num:number = Math.floor(Math.random() * hex.length);
-    hexColor += num;
-    document.querySelector('body').style.backgroundColor = hexColor;
-    colorSpan.textContent = hexColor;
+    hexColor += hex[num];
   }
+  document.querySelector('body').style.backgroundColor = hexColor;
+  colorSpan.textContent = hexColor;
 });
