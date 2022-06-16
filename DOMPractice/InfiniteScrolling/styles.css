@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+}
+
+img {
+  margin: 5px;
+  width: 200px;
+  height: 200px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
