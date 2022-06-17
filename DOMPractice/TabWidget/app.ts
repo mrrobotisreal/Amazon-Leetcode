@@ -17,11 +17,23 @@ inputText.addEventListener('change', function(e) {
   inputName = target.value;
 });
 
-const inputSubmit = document.createElement('button');
-inputSubmit.addEventListener('click', function(e) {
+const buttonSubmit = document.createElement('button');
+buttonSubmit.addEventListener('click', function(e) {
   // Create new Tab with inputName as title
 });
 
 const tabDiv = document.createElement('div');
-const tabHeaderDiv = document.createElement('div');
+const tabHeader = document.createElement('div');
 const tabBody = document.createElement('div');
+tabDiv.setAttribute('id', 'tabDiv');
+tabHeader.setAttribute('class', 'tabHeader');
+tabBody.setAttribute('class', 'tabBody');
+
+/* Appending */
+body.appendChild(app);
+app.append(inputForm);
+inputForm.append(inputText);
+inputForm.append(buttonSubmit);
+app.append(tabDiv);
+tabDiv.append(tabHeader);
+tabDiv.append(tabBody);
