@@ -5,12 +5,15 @@ import { HeadersReceivedResponse } from "electron";
 const body = document.querySelector('body');
 
 const app = document.createElement('div');
+body.appendChild(app);
 app.setAttribute('id', 'app');
 
 const inputForm = document.createElement('form');
+app.append(inputForm);
 inputForm.setAttribute('class', 'inputForm');
 
 const inputText = document.createElement('input');
+inputForm.append(inputText);
 inputText.setAttribute('id', 'inputText');
 inputText.type = 'text';
 inputText.placeholder = 'Tab Name';
@@ -21,6 +24,7 @@ inputText.addEventListener('input', function(e) {
 });
 
 const buttonSubmit = document.createElement('button');
+inputForm.append(buttonSubmit);
 buttonSubmit.setAttribute('class', 'btn');
 buttonSubmit.textContent = 'Add Tab';
 const tabs:{headerId: string, tabId: string}[] = [];
@@ -46,17 +50,19 @@ buttonSubmit.addEventListener('click', function(e) {
     .then((res) => res.json())
     .then((data) => {
       const img = document.createElement('img');
+      tabBody.appendChild(img);
       img.setAttribute('id', `${inputName}-img`);
       img.src = `${data.message}`
       img.style.display = 'flex';
-      tabBody.appendChild(img);
     })
     .catch((err) => console.error(err));
   const newTabHeader = document.createElement('button');
+  tabHeader.appendChild(newTabHeader);
   newTabHeader.setAttribute('id', inputName);
   newTabHeader.setAttribute('class', 'btn');
   newTabHeader.textContent = inputName;
   newTabHeader.addEventListener('click', function(e) {
+    console.log('clicked!');
     e.preventDefault();
     const target = e.target as HTMLButtonElement;
     console.log('target id is -> ', target.id);
@@ -68,22 +74,15 @@ buttonSubmit.addEventListener('click', function(e) {
       }
     }
   });
-  tabHeader.appendChild(newTabHeader);
   inputName = '';
 });
 
 const tabDiv = document.createElement('div');
-const tabHeader = document.createElement('div');
-const tabBody = document.createElement('div');
-tabDiv.setAttribute('id', 'tabDiv');
-tabHeader.setAttribute('id', 'tabHeader');
-tabBody.setAttribute('id', 'tabBody');
-
-/* Appending */
-body.appendChild(app);
-app.append(inputForm);
-inputForm.append(inputText);
-inputForm.append(buttonSubmit);
 app.append(tabDiv);
+tabDiv.setAttribute('id', 'tabDiv');
+const tabHeader = document.createElement('div');
 tabDiv.append(tabHeader);
+tabHeader.setAttribute('id', 'tabHeader');
+const tabBody = document.createElement('div');
 tabDiv.append(tabBody);
+tabBody.setAttribute('id', 'tabBody');
