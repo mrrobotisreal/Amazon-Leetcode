@@ -1,5 +1,7 @@
 /* Needs http server to run, I used python's http server with 'python3 -m http.server' */
 
+import { HeadersReceivedResponse } from "electron";
+
 const body = document.querySelector('body');
 
 const app = document.createElement('div');
@@ -22,17 +24,32 @@ const buttonSubmit = document.createElement('button');
 buttonSubmit.setAttribute('class', 'btn');
 buttonSubmit.textContent = 'Add Tab';
 const tabs:{headerId: string, tabId: string}[] = [];
+class Tab {
+  headerId: string;
+  tabId: string;
+};
 buttonSubmit.addEventListener('click', function(e) {
   // Create new Tab with inputName as title
   e.preventDefault();
   const inputText = document.getElementById('inputText') as HTMLInputElement;
   inputText.value = '';
+  const collectedElements = document.getElementById('tabDiv') as HTMLDivElement;
+  const tab = new Tab();
+  tab.headerId = inputName;
+  tab.tabId = `${inputName}-img`;
+  tabs.push(tab);
+  if (tabs.length > 0) {
+    for (let i:number = 0; i < tabs.length; i++) {
+      document.getElementById(tab.tabId).style.display = 'none';
+    }
+  }
   fetch('https://dog.ceo/api/breeds/image/random')
     .then((res) => res.json())
     .then((data) => {
       const img = document.createElement('img');
       img.setAttribute('id', `${inputName}-img`);
       img.src = `${data.message}`
+      img.style.display = 'flex';
       tabBody.appendChild(img);
     })
     .catch((err) => console.error(err));
