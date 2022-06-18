@@ -33,14 +33,13 @@ buttonSubmit.addEventListener('click', function(e) {
   e.preventDefault();
   const inputText = document.getElementById('inputText') as HTMLInputElement;
   inputText.value = '';
-  const collectedElements = document.getElementById('tabDiv') as HTMLDivElement;
   const tab = new Tab();
   tab.headerId = inputName;
   tab.tabId = `${inputName}-img`;
   tabs.push(tab);
   if (tabs.length > 0) {
     for (let i:number = 0; i < tabs.length; i++) {
-      document.getElementById(tab.tabId).style.display = 'none';
+      document.getElementById(tabs[i].tabId).style.display = 'none';
     }
   }
   fetch('https://dog.ceo/api/breeds/image/random')
@@ -57,6 +56,18 @@ buttonSubmit.addEventListener('click', function(e) {
   newTabHeader.setAttribute('id', inputName);
   newTabHeader.setAttribute('class', 'btn');
   newTabHeader.textContent = inputName;
+  newTabHeader.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = e.target as HTMLButtonElement;
+    console.log('target id is -> ', target.id);
+    for (let i:number = 0; i < tabs.length; i++) {
+      if (tabs[i].tabId === target.id) {
+        document.getElementById(tabs[i].tabId).style.display = 'flex';
+      } else {
+        document.getElementById(tabs[i].tabId).style.display = 'none';
+      }
+    }
+  });
   tabHeader.appendChild(newTabHeader);
   inputName = '';
 });
