@@ -28,6 +28,7 @@ inputText.addEventListener('input', function(e) {
 const buttonSubmit = document.createElement('button');
 inputForm.append(buttonSubmit);
 buttonSubmit.setAttribute('class', 'btn');
+buttonSubmit.setAttribute('id', 'addTabButton');
 buttonSubmit.textContent = 'Add Tab';
 const tabs:{headerId: string, tabId: string}[] = [];
 class Tab {
