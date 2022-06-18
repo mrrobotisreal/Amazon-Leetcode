@@ -35,6 +35,8 @@ img {
   border-radius: 12%;
   transition: .2s;
   color: white;
+  background-color: black;
+  margin: 2%;
 }
 
 .btn:hover {
@@ -48,6 +50,7 @@ img {
   align-items: center;
   flex-direction: column;
   padding: 2%;
+  margin-top: 2%;
 }
 
 #tabHeader {
