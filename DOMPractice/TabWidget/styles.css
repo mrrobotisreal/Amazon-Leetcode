@@ -1,3 +1,58 @@
 body {
   background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 600;
+  height: 600;
+  border-radius: 12%;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+#inputForm {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#inputText {
+  width: 90%;
+}
+
+.btn {
+  border: 2px solid green;
+  border-radius: 12%;
+  transition: .2s;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.15);
+  box-shadow: 4px 4px 6px green, 0 0 1em black, 0 0 0.2em black;
+}
+
+#tabDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2%;
+}
+
+#tabHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
 }
