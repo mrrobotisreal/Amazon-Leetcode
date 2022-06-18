@@ -21,6 +21,7 @@ inputText.addEventListener('input', function(e) {
 const buttonSubmit = document.createElement('button');
 buttonSubmit.setAttribute('class', 'btn');
 buttonSubmit.textContent = 'Add Tab';
+const tabs:{headerId: string, tabId: string}[] = [];
 buttonSubmit.addEventListener('click', function(e) {
   // Create new Tab with inputName as title
   e.preventDefault();
