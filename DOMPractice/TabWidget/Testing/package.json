@@ -1,0 +1,15 @@
+{
+  "name": "tab-widget-testing",
+  "version": "1.0.0",
+  "description": "Cypress tests for tab widget",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "openCy": "npx cypress open"
+  },
+  "author": "Mitchell Wintrow",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^10.1.0"
+  }
+}
