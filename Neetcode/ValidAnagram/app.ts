@@ -1,13 +1,12 @@
 /* Naive Solution */
 
 function isAnagram(s: string, t: string): boolean {
-  console.time();
+  console.time('isAnagramTest');
   interface Letters {
     [key:string]: number,
   }
 
   if (s.length !== t.length) {
-    console.log('FAIL');
     return false;
   }
   const sLetters:Letters = {};
@@ -30,20 +29,18 @@ function isAnagram(s: string, t: string): boolean {
 
   for (const letter in sLetters) {
     if (sLetters[letter] !== tLetters[letter]) {
-      console.log('FAIL2');
       return false;
     }
   }
-  console.timeEnd();
+  console.timeEnd('isAnagramTest');
   return true;
 };
 
 /* Optimized Solution */
 
 function isAnagramSet(s:string, t:string): boolean {
-  console.time();
+  console.time('isAnagramSetTest');
   if (s.length !== t.length) {
-    console.log('FAIL');
     return false;
   }
 
@@ -57,38 +54,61 @@ function isAnagramSet(s:string, t:string): boolean {
       return false;
     }
   }
-  console.timeEnd();
+  console.timeEnd('isAnagramSetTest');
   return true;
 }
 
-/* SPEED TEST 1 */
-console.log('TEST 1:');
-console.log('=======================================');
-console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.042ms
-console.log('---------------------------------------');
-console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.008ms
-console.log('========================================');
+// /* SPEED TEST 1 */
+// console.log('TEST 1:');
+// console.log('=======================================');
+// console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.042ms
+// console.log('---------------------------------------');
+// console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.008ms
+// console.log('========================================');
 
-/* SPEED TEST 2 */
-console.log('TEST 2:');
-console.log('======================================='); // 0.005ms
-console.log('isAnagram: ', isAnagram('string', 'grints'));
-console.log('---------------------------------------');
-console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
-console.log('========================================');
+// /* SPEED TEST 2 */
+// console.log('TEST 2:');
+// console.log('======================================='); // 0.005ms
+// console.log('isAnagram: ', isAnagram('string', 'grints'));
+// console.log('---------------------------------------');
+// console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
+// console.log('========================================');
 
-/* SPEED TEST 3 */
-console.log('TEST 3:');
-console.log('=======================================');
-console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.056ms
-console.log('---------------------------------------');
-console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
-console.log('========================================');
+// /* SPEED TEST 3 */
+// console.log('TEST 3:');
+// console.log('=======================================');
+// console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.056ms
+// console.log('---------------------------------------');
+// console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
+// console.log('========================================');
 
-/* SPEED TEST 4 */
-console.log('TEST 4:');
-console.log('=======================================');
-console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.012ms
-console.log('---------------------------------------');
-console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
-console.log('========================================');
+// /* SPEED TEST 4 */
+// console.log('TEST 4:');
+// console.log('=======================================');
+// console.log('isAnagram: ', isAnagram('string', 'grints')); // 0.012ms
+// console.log('---------------------------------------');
+// console.log('isAnagramSet: ', isAnagramSet('string', 'grints')); // 0.003ms
+// console.log('========================================');
+
+
+/* UNIT TESTING */
+
+function assertIsAnagram(test, solution, description): boolean {
+  if (test === solution) {
+    console.log(`PASS: ${description}`);
+    return test;
+  } else {
+    console.log(`FAIL: ${description}`);
+    return test;
+  }
+}
+
+const successTestAnagram = assertIsAnagram(isAnagram('string', 'grints'), true, 'should pass and return true');
+const successTestNotAnagram = assertIsAnagram(isAnagram('string', 'strung'), false, 'should pass and return false');
+const failTestAnagram = assertIsAnagram(isAnagram('string', 'grints'), false, 'should fail and return true');
+const failTestNotAnagram = assertIsAnagram(isAnagram('string', 'strung'), true, 'should fail and return false');
+
+const successTestAnagramSet = assertIsAnagram(isAnagramSet('string', 'grints'), true, 'should pass and return true');
+const successTestNotAnagramSet = assertIsAnagram(isAnagramSet('string', 'strung'), false, 'should pass and return false');
+const failTestAnagramSet = assertIsAnagram(isAnagramSet('string', 'grints'), false, 'should fail and return true');
+const failTestNotAnagramSet = assertIsAnagram(isAnagramSet('string', 'strung'), true, 'should fail and return false');
