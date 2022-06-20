@@ -28,7 +28,7 @@ function processImage() {
 
       ctx.drawImage(e.target, 0, 0, canvas.width, canvas.height);
 
-      const srcEncoded = ctx.canvas.toDataURL(e.target, "image/jpeg");
+      const srcEncoded = ctx.canvas.toDataURL("image/jpeg", 0.25);
 
       document.querySelector("#output").src = srcEncoded;
     }
