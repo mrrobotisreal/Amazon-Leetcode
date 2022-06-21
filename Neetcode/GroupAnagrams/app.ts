@@ -1,3 +1,5 @@
+/* STILL NEEDS EDGE CASES HANDLED */
+
 function groupAnagrams(strs: string[]): string[][] {
   console.time('groupAnagrams');
   let result:string[][] = [];
