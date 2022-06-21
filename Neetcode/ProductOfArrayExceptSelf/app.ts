@@ -22,9 +22,39 @@ function productExceptSelf(nums: number[]): number[] {
       // use accumulator variable to multiply itself against each item except the current one from first loop
       product *= nums[j];
     }
+    // add accumulator to result array
     result.push(product);
   }
   console.timeEnd('productExceptSelf');
   // return the result array
   return result;
 };
+
+console.log(productExceptSelf([1, 2, 3, 4]));
+
+function assertProductExceptSelf(test, solution, description): boolean {
+  let isEqual: boolean = true;
+  if (test.length !== solution.length) {
+    console.log('FAIL: arrays are different lengths');
+    return false;
+  }
+  for (let i: number = 0; i < test.length; i++) {
+    if (test[i] !== solution[i]) {
+      console.log(`FAIL: does not ${description}`);
+      return false;
+    }
+  }
+  if (isEqual) {
+    console.log(`PASS: ${description}`);
+    return isEqual;
+  } else {
+    console.log(`FAIL: does not ${description}`);
+    return false;
+  }
+}
+
+const successTest = assertProductExceptSelf(productExceptSelf([1, 2, 3, 4]), [24, 12, 8, 6], 'multiply all items in array together except self, return the resultant array');
+const failTest = assertProductExceptSelf(productExceptSelf([1, 2, 3, 4]), [1, 2, 3, 4], 'multiply all items in array together except self, return the resultant array');
+
+console.log(successTest);
+console.log(failTest);
