@@ -29,6 +29,7 @@
 // };
 
 function groupAnagrams(strs: string[]): string[][] {
+  console.time('groupAnagrams');
   let result:string[][] = [];
   // let sorted:string[] = [];
   interface Anagrams {
@@ -54,12 +55,15 @@ function groupAnagrams(strs: string[]): string[][] {
     }
   }
 
-  for (const anagram of anagrams) {
+  for (const anagram in anagrams) {
     if (anagrams[anagram].length > 0) {
       result.push(anagrams[anagram]);
     }
   }
 
+  console.log('anagrams -> ', anagrams);
+  console.log('result -> ', result);
+  console.timeEnd('groupAnagrams');
   return result;
 };
 
