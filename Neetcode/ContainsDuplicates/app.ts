@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
+// Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
  var containsDuplicate = function(nums) {
   for (let i:number = 0; i < nums.length; i++) {
       for (let j:number = 0; j < nums.length && j !== i; j++) {
