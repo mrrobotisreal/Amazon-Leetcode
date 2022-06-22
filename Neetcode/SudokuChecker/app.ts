@@ -11,9 +11,7 @@ Only the filled cells need to be validated according to the mentioned rules.
 */
 
 function isValidSudoku(board: string[][]): boolean {
-  // create regular expression for matching digits
   const digits:RegExp = /\d/g;
-  // iterate through each row and check for duplicates with indexing
   let col1:string[] = [];
   let col2:string[] = [];
   let col3:string[] = [];
@@ -42,7 +40,6 @@ function isValidSudoku(board: string[][]): boolean {
     }
     for (let j:number = 0; j < board[i].length; j++) {
       eval(`col${j + 1}.push(board[i][j])`);
-      // console.log(col1);
     }
   }
   console.log('col1 -> ', col1);
@@ -56,7 +53,6 @@ function isValidSudoku(board: string[][]): boolean {
     }
   }
 
-  // recursively check each column
   return true;
 };
 
