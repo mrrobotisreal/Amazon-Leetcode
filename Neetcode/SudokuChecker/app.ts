@@ -11,6 +11,7 @@ Only the filled cells need to be validated according to the mentioned rules.
 */
 
 function isValidSudoku(board: string[][]): boolean {
+  console.time('sudoku');
   const digits:RegExp = /\d/g;
   let col1:string[] = [];
   let col2:string[] = [];
@@ -53,6 +54,7 @@ function isValidSudoku(board: string[][]): boolean {
     }
   }
 
+  console.timeEnd('sudoku');
   return true;
 };
 
@@ -89,4 +91,4 @@ const failColBoard = [
 ,[".",".",".","4","1","9",".",".","5"]
 ,[".",".",".",".","8",".",".","7","9"]];
 
-console.log(isValidSudoku(failRowBoard));
+console.log(isValidSudoku(testBoard));
