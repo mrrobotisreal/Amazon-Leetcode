@@ -14,4 +14,30 @@
 // Explanation: In this case, no transactions are done and the max profit = 0.
 
 function maxProfit(prices: number[]): number {
+  let profit: number = 0;
+  interface Price {
+    price: number,
+    index: number,
+  }
+  let lowest: Price = {
+    price: Math.max(...prices),
+    index: 0,
+  };
+  let highest: Price = {
+    price: Math.min(...prices),
+    index: 0,
+  }
+  let lowestPrices:number[] = [];
+  let highestPrices:number[] = [];
+
+  for (let i = 0; i < prices.length; i++) {
+    if (prices[i] < lowest.price) {
+      lowest.price = prices[i];
+    }
+    if (prices[i] > highest.price) {
+      highest.price = prices[i];
+    }
+  }
+
+  return profit;
 };
