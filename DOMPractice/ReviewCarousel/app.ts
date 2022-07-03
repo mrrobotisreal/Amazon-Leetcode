@@ -48,7 +48,19 @@ function onClickNext(e): void {
   // imgContainer.classList.remove('w3-animate-top');
   // imgContainer.classList.remove('w3-animate-left');
   // imgContainer.classList.add('w3-animate-right');
-  console.log('currentItem ', currentItem)
+  console.log('classList ', imgContainer.classList);
+  if (imgContainer.classList.contains('img-animation-top')) {
+    imgContainer.classList.remove('img-animation-top');
+    imgContainer.classList.add('img-animation-right');
+    setTimeout(() => {
+      imgContainer.classList.remove('img-animation-right');
+    }, 2500);
+  } else {
+    imgContainer.classList.add('img-animation-right');
+    setTimeout(() => {
+      imgContainer.classList.remove('img-animation-right');
+    }, 2500);
+  }
   if (currentItem === reviews.length - 1) {
     currentItem = 0;
     update(currentItem);
@@ -62,6 +74,19 @@ function onClickPrev(e): void {
   // imgContainer.classList.remove('w3-animate-top');
   // imgContainer.classList.remove('w3-animate-right');
   // imgContainer.classList.add('w3-animate-left');
+  console.log('classList ', imgContainer.classList);
+  if (imgContainer.classList.contains('img-animation-top')) {
+    imgContainer.classList.remove('img-animation-top');
+    imgContainer.classList.add('img-animation-left');
+    setTimeout(() => {
+      imgContainer.classList.remove('img-animation-left');
+    }, 2500);
+  } else {
+    imgContainer.classList.add('img-animation-left');
+    setTimeout(() => {
+      imgContainer.classList.remove('img-animation-left');
+    }, 2500);
+  }
   if (currentItem === 0) {
     currentItem = reviews.length - 1;
     update(currentItem);
