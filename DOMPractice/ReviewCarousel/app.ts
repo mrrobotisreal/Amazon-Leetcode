@@ -80,12 +80,12 @@ function onClickPrev(e): void {
     imgContainer.classList.add('img-animation-left');
     setTimeout(() => {
       imgContainer.classList.remove('img-animation-left');
-    }, 2500);
+    }, 500);
   } else {
     imgContainer.classList.add('img-animation-left');
     setTimeout(() => {
       imgContainer.classList.remove('img-animation-left');
-    }, 2500);
+    }, 500);
   }
   if (currentItem === 0) {
     currentItem = reviews.length - 1;

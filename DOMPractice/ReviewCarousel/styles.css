@@ -16,7 +16,8 @@ body {
 }
 
 .img-animation-right {
-  animation-name: slideinright;
+  /* animation-name: slideinright; */
+  animation-name: fade-in;
   animation-duration: 1s;
 }
 
@@ -62,6 +63,16 @@ body {
   to {
     margin-top: 0%;
     width: 20%;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
