@@ -17,12 +17,12 @@ body {
 
 .img-animation-right {
   animation-name: slideinright;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .img-animation-left {
   animation-name: slideinleft;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .img-animation-top {
@@ -37,7 +37,7 @@ body {
 
   to {
     margin-left: 0%;
-    width: 20%;
+    width: 15%;
   }
 }
 
@@ -49,7 +49,7 @@ body {
 
   to {
     margin-right: 0%;
-    width: 20%;
+    width: 15%;
   }
 }
 
