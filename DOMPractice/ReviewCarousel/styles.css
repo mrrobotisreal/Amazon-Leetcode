@@ -1,5 +1,6 @@
 body {
   background-color: black;
+  color: white;
 }
 
 .img {
@@ -12,6 +13,56 @@ body {
   box-shadow: 5px 10px #969696;
   width: fit-content;
   /* background-image: url('./fakePersonSmiling.png'); */
+}
+
+.img-animation-right {
+  animation-name: slideinright;
+  animation-duration: 2s;
+}
+
+.img-animation-left {
+  animation-name: slideinleft;
+  animation-duration: 2s;
+}
+
+.img-animation-top {
+  animation-name: slideintop;
+}
+
+@keyframes slideinright {
+  from {
+    margin-left: 60%;
+    width: 200%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 20%;
+  }
+}
+
+@keyframes slideinleft {
+  from {
+    margin-right: 60%;
+    width: 200%;
+  }
+
+  to {
+    margin-right: 0%;
+    width: 20%;
+  }
+}
+
+@keyframes slideintop {
+  from {
+    margin-top: 60%;
+    width: 200%;
+  }
+
+  to {
+    margin-top: 0%;
+    width: 20%;
+  }
 }
 
 .container {
@@ -45,4 +96,9 @@ body {
 .prevnext {
   border-radius: 12px;
   box-shadow: 2px 4px #969696;
+  transition: .2s;
+}
+
+.prevnext:hover {
+  transform: scale(1.20);
 }

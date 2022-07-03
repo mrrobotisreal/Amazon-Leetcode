@@ -36,23 +36,43 @@ const reviews = [
   }
 ];
 
-function onClickNext(e): void {}
+function update(person: number): void {
+  const item = reviews[person];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+}
 
-function onClickPrev(e): void {}
+function onClickNext(e): void {
+  // imgContainer.classList.remove('w3-animate-top');
+  // imgContainer.classList.remove('w3-animate-left');
+  // imgContainer.classList.add('w3-animate-right');
+  console.log('currentItem ', currentItem)
+  if (currentItem === reviews.length - 1) {
+    currentItem = 0;
+    update(currentItem);
+  } else {
+    currentItem += 1;
+    update(currentItem);
+  }
+}
 
-function onClick(e): void {
-  if (e.currentTarget.id === 'next-btn') {
-    imgContainer.classList.remove('w3-animate-top');
-    imgContainer.classList.remove('w3-animate-left');
-    imgContainer.classList.add('w3-animate-right');
-  } else if (e.currentTarget.id === 'prev-btn') {
-    imgContainer.classList.remove('w3-animate-top');
-    imgContainer.classList.remove('w3-animate-right');
-    imgContainer.classList.add('w3-animate-left');
+function onClickPrev(e): void {
+  // imgContainer.classList.remove('w3-animate-top');
+  // imgContainer.classList.remove('w3-animate-right');
+  // imgContainer.classList.add('w3-animate-left');
+  if (currentItem === 0) {
+    currentItem = reviews.length - 1;
+    update(currentItem);
+  } else {
+    currentItem -= 1;
+    update(currentItem);
   }
 }
 
 const imgContainer = document.getElementById('image-div') as HTMLDivElement;
+const btnContainer = document.getElementById('btn-container') as HTMLDivElement;
 const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
 const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
 const randomBtn = document.getElementById('random-btn') as HTMLButtonElement;
@@ -61,4 +81,13 @@ const author = document.getElementById('author') as HTMLHeadingElement;
 const job = document.getElementById('job') as HTMLParagraphElement;
 const info = document.getElementById('info') as HTMLParagraphElement;
 
-imgContainer.addEventListener('click', onClick);
+// btnContainer.addEventListener('click', onClick);
+nextBtn.addEventListener('click', onClickNext);
+prevBtn.addEventListener('click', onClickPrev);
+
+let currentItem: number = 0;
+
+window.addEventListener('DOMContentLoaded', function() {
+  console.log('shake and bake!');
+  update(currentItem);
+});

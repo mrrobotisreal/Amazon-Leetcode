@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>Review Carousel</title>
@@ -18,19 +18,19 @@
         </div>
         <!-- Review -->
         <article class="review">
-          <div id="image-div" class="img-container w3-container w3-center w3-animate-top">
+          <div id="image-div" class="img-container img-animation-top">
             <img id="person-img" class="img" src="./fakePersonSmiling.png" alt="person smiling" width="234" height="291" />
           </div>
           <h4 id="author">Sara Jones</h4>
           <p id="job">UX Designer</p>
           <p id="info">This is just a bunch of bull malarky text to look like something was written here and it takes up a bunch of space. Sometimes it's quite funny to just make things up on the fly like this, I mean for real, you can even talk about purple dogs, flying biscuits and who can forget the lizard people living underground in Manhattan? People are people, and one person is a person, and guess what? They're all still humans! I know, crazy right? I ate an entire piece of shoe leather for breakfast this morning while I flossed with my hair. That is just a Tuesday for me too, don't get me started. I am literally so interesting that I can't help but only be interested in myself, and can you believe it? They are just jealous because they can't date me, by the way, my name is AOC, but totally not the crazy wannabe politician or whatever she thinks she is. Haha anyway, my timing belts just finished frying so I better go get them and flip them over on the grill. Have a very miniature and delicate weekend folks!</p>
           <!-- prev next buttons -->
-          <div class="button-container">
-            <button id="prev-btn" class="prev-button prevnext">
-              <i class="fas fa-chevron-left"></i>
+          <div id="btn-container" class="button-container">
+            <button class="prev-button prevnext">
+              <i id="prev-btn" class="fas fa-chevron-left"></i>
             </button>
-            <button id="next-btn" class="prev-button prevnext">
-              <i class="fas fa-chevron-right"></i>
+            <button class="prev-button prevnext">
+              <i id="next-btn" class="fas fa-chevron-right"></i>
             </button>
           </div>
           <!-- random button -->
